@@ -1,24 +1,14 @@
-import { save, Connector } from "./save"
-
-export type newUserDTO = {
-    full_name: string;
-    age: number;
-    email: string;
-    password: string;
-    address: string;
-    phone: string;
-    personal_website: string;
-}
-
-const connector: Connector = {
+"use strict";
+exports.__esModule = true;
+var save_1 = require("./save");
+var connector = {
     title: "ไม่ต้องสนใจ 'ค่า (value)' ของตัวแปรนี้",
-}
-
-function saveNewUser(detail: newUserDTO) {
-
+    ss: ''
+};
+function saveNewUser(detail) {
     // 2) ถ้าเราจะเรียกใช้ save() function เราต้องการอะไรบ้าง และต้องส่งอะไรเข้าไปบ้าง
     // code here..
-    const data: newUserDTO = {
+    var data = {
         full_name: "string",
         age: 55,
         email: "string@gmail.com",
@@ -26,7 +16,6 @@ function saveNewUser(detail: newUserDTO) {
         address: "string",
         phone: "string",
         personal_website: "string"
-    }
-    save(connector, data)
+    };
+    (0, save_1.save)(connector, data);
 }
-

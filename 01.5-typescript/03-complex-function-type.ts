@@ -14,4 +14,6 @@ export function connectDB(db_detail: DBDetail): DatabaseConnector {
     return Connect(db_name, db_host, db_port) as DatabaseConnector
 }
 
-const mysql = connectDB("ss")
+// const mysql = connectDB("ss")
+
+const mysql = connectDB({name: 'mysql' , host: 'mysql://localhost', port: 8080})

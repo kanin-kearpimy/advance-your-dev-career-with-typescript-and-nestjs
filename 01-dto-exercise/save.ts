@@ -1,6 +1,8 @@
 import { newUserDTO } from "./basic-dto"
 
-type Connector = {}
+export type Connector = {
+    title: string
+}
 
 export function save(connector: Connector, data: newUserDTO){
 

@@ -23,11 +23,12 @@ router.post('/todos', (req, res, next) => {
     id: uuid(),
     title: req.body.task,
     isComplete: req.body.status,
+    userId: req.body.userId
   });
 
   Todo.push(todo);
-  const new_user = Todo.filter(({ id }) => id === todo.id);
-  return new_user;
+  const todo = Todo.filter(({ id }) => id === todo.id);
+  return todo;
 });
 
 // ให้แปลง code ด้านบนเป็นแบบ MVC ลงไปใน src -> todos -> todos.controller.ts (ทำไปพร้อมกัน)
