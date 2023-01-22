@@ -9,17 +9,16 @@ export type UserDTO = {
   organizationId: string;
 };
 
+export type User = {
+  userId: string;
+  name: string;
+  organizationId: string;
+};
+
 @Injectable()
 export class UserService {
   constructor(private todoService: TodoService) {}
-  private readonly users: UserDTO[] = [
-    {
-      userId: 'jame1',
-      name: 'james',
-      todoList: [],
-      organizationId: 'org1',
-    },
-  ];
+  private readonly users: UserDTO[] = [];
 
   findAll() {
     const todos: TodoDTO[] = this.todoService.findAll();
@@ -42,5 +41,17 @@ export class UserService {
     }
 
     return usersReturn;
+  }
+
+  create(user: User) {
+    const todoList: TodoDTO[] = [];
+    const userDTO: UserDTO = {
+      userId: user.userId,
+      name: user.name,
+      organizationId: user.organizationId,
+      todoList: todoList,
+    };
+
+    this.users.push(userDTO);
   }
 }
